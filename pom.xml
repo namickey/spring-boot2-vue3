@@ -75,6 +75,64 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			<plugin>
+       			<groupId>com.github.eirslett</groupId>
+        		<artifactId>frontend-maven-plugin</artifactId>
+        		<version>1.13.4</version>
+				<configuration>
+					<nodeVersion>v18.16.1</nodeVersion>
+					<npmVersion>9.5.1</npmVersion>
+					<workingDirectory>${project.basedir}/frontend</workingDirectory>
+					<installDirectory>target</installDirectory>
+				</configuration>
+				<executions>
+					<execution>
+						<id>install node and npm</id>
+						<goals>
+							<goal>install-node-and-npm</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>npm install</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+						<configuration>
+							<arguments>install</arguments>
+						</configuration>
+					</execution>
+					<execution>
+						<id>npm</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+						<configuration>
+				            <arguments>run build</arguments>
+        				</configuration>
+					</execution>
+				</executions>
+		    </plugin>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-dist-to-static</id>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<phase>generate-resources</phase>
+						<configuration>
+							<outputDirectory>${project.build.outputDirectory}/static</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${project.basedir}/frontend/dist</directory>
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 
