@@ -14,6 +14,8 @@ https://github.com/eirslett/frontend-maven-plugin
 Spring bootとReactを連結する方法(Buildする方法)  
 https://www.nowonbun.com/332.html  
 
+https://www.webdesignleaves.com/pr/jquery/fetch-api-basic.html  
+
 ## 参考 Vue.js
 今日から始めるVue.js 3を学んで本格的なWebフロントエンド開発(基礎編)  
 https://reffect.co.jp/vue/beginner-vue/  
